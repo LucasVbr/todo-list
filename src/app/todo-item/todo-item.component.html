@@ -1,0 +1,6 @@
+<li>
+  <input type="checkbox" [checked]="todoItem.checked" (change)="check()" name="checkbox"
+         id="checkbox-{{ todoItem.id }}">
+  <label class="checkbox ml-2" for="checkbox-{{ todoItem.id }}">{{ todoItem.text }}</label>
+  <!-- Todo add delete button -->
+</li>
