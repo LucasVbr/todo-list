@@ -1,0 +1,13 @@
+input[type=checkbox] + label {
+  transition: all 500ms;
+}
+
+input[type=checkbox]:checked + label {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.empty-list {
+  color: gray;
+  font-style: italic;
+}

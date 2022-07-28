@@ -1,10 +1,40 @@
 <div class="container">
-  <div class="card m-6">
-    <div class="content p-6">
-      <h1 class="title has-text-centered">Todo List</h1>
-      <app-todo-list></app-todo-list>
-      <app-todo-input></app-todo-input>
+  <div class="card p-6 mt-6">
+    <h1 class="title has-text-centered">{{ title }}</h1>
+
+    <!-- Todolist -->
+    <div class="m-5">
+      <div *ngIf="list.length == 0">
+        <p class="empty-list subtitle has-text-centered">Empty list</p>
+      </div>
+
+      <div class="columns" *ngFor="let item of list">
+        <input type="checkbox" [(ngModel)]="item.checked" name="{{ item.text }}" id="{{ item.text }}">
+        <label class="checkbox pl-2" for="{{ item.text }}">
+          {{ item.text }}
+        </label>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="columns is-multiline">
+      <div class="column">
+        <input class="input" type="text" [(ngModel)]="inputValue" (keydown.enter)="addItem()">
+      </div>
+      <div class="column is-2">
+        <button class="button is-primary" (click)="addItem()">
+          <span class="icon">
+            <i class="fa fa-plus"></i>
+          </span>
+        </button>
+      </div>
+      <div class="column is-2">
+        <button class="button is-danger" (click)="removeCheckedItems()">
+          <span class="icon">
+            <i class="fa fa-trash"></i>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
-
