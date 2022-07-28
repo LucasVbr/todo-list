@@ -9,7 +9,7 @@
       </div>
 
       <div class="columns" *ngFor="let item of list">
-        <input type="checkbox" [(ngModel)]="item.checked" name="{{ item.text }}" id="{{ item.text }}">
+        <input type="checkbox" [(ngModel)]="item.checked" (ngModelChange)="saveList()" name="{{ item.text }}" id="{{ item.text }}">
         <label class="checkbox pl-2" for="{{ item.text }}">
           {{ item.text }}
         </label>

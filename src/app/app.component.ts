@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     if (this.inputValue && !listOfTodoText.includes(this.inputValue)) {
       this.list.push(new TodoItem(this.inputValue))
       this.inputValue = "";
-      this.saveList();
+      this.saveList()
     }
   }
 
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
    */
   removeItem(toRemove: TodoItem): void {
     this.list = this.list.filter(item => item !== toRemove);
-    this.saveList();
+    this.saveList()
   }
 
   /**
@@ -46,11 +46,11 @@ export class AppComponent implements OnInit {
    */
   removeCheckedItems(): void {
     this.list = this.list.filter(item => !item.checked)
-    this.saveList();
+    this.saveList()
   }
 
-  private saveList(): void {
+  saveList(): void {
     LocalService.saveData(this.LOCAL_STORAGE_KEY, this.list);
+    console.log(this.list)
   }
-
 }
