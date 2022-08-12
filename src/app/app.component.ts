@@ -1,56 +1,57 @@
 import {Component, OnInit} from '@angular/core';
-import TodoItem from "../models/todo-item.model";
-import LocalService from "../services/local.service";
+import TodoItem from '../models/TodoItem';
+
+const LOCAL_STORAGE_KEY: string = "todoList";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit{
   public title = 'Todo List App';
-  public list: TodoItem[] = [];
+  public todoInput!: string;
+  public todoList!: TodoItem[];
 
-  private LOCAL_STORAGE_KEY = "todoList";
-  inputValue: any;
-
-  ngOnInit(): void {
-    const savedData: null | TodoItem[] = LocalService.getData(this.LOCAL_STORAGE_KEY)
-    if (savedData) this.list = savedData;
+  ngOnInit() {
+    this.todoInput = "";
+    this.todoList = this.getSavedList();
   }
 
-  /**
-   * Create a new item if input is not empty and the item doesn't exist already
-   */
-  addItem(): void {
-    const listOfTodoText = this.list.map(item => item.text);
+  private getSavedList(): TodoItem[] {
+    console.info("Load TodoList");
 
-    if (this.inputValue && !listOfTodoText.includes(this.inputValue)) {
-      this.list.push(new TodoItem(this.inputValue))
-      this.inputValue = "";
-      this.saveList()
-    }
+    const loadedValues: string|null = localStorage.getItem(LOCAL_STORAGE_KEY);
+
+    if (loadedValues) return JSON.parse(loadedValues) as TodoItem[];
+    return [];
   }
 
-  /**
-   * Remove a specific item of the list
-   * @param toRemove TodoItem to remove
-   */
-  removeItem(toRemove: TodoItem): void {
-    this.list = this.list.filter(item => item !== toRemove);
-    this.saveList()
+  public saveList() {
+    console.info("Save todoList");
+
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.todoList))
   }
 
-  /**
-   * Remove all checked items of the list
-   */
-  removeCheckedItems(): void {
-    this.list = this.list.filter(item => !item.checked)
-    this.saveList()
+  public addItem(): void {
+    if (!this.todoInput) return;
+
+    const newItem: TodoItem = new TodoItem(this.getNextIndex(), this.todoInput);
+    this.todoList.push(newItem);
+    this.todoInput = "";
+
+    this.saveList();
   }
 
-  saveList(): void {
-    LocalService.saveData(this.LOCAL_STORAGE_KEY, this.list);
-    console.log(this.list)
+  public removeItem(index: number): void {
+    this.todoList = this.todoList.filter(item => {
+      return item.id !== index;
+    });
+    this.saveList();
+  }
+
+  private getNextIndex() {
+    if (this.todoList.length === 0) return 1;
+    return Math.max(...this.todoList.map(item => item.id)) + 1
   }
 }

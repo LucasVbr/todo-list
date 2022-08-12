@@ -1,40 +1,29 @@
 <div class="container">
-  <div class="card p-6 mt-6">
-    <h1 class="title has-text-centered">{{ title }}</h1>
+  <h1 class="title has-text-centered mt-5">{{ title }}</h1>
 
-    <!-- Todolist -->
-    <div class="m-5">
-      <div *ngIf="list.length == 0">
-        <p class="empty-list subtitle has-text-centered">Empty list</p>
-      </div>
+  <div class="card">
+    <div class="card-content">
+      <table class="table is-striped is-narrow is-fullwidth">
+        <tr *ngFor="let todoItem of todoList">
+          <td>
+            <input class="checkbox is-primary" type="checkbox" (change)="saveList()"
+                   [checked]="todoItem.completed" name="task-{{ todoItem.id }}"
+                   id="task-{{ todoItem.id }}">
+          </td>
+          <td>
+            <label for="task-{{ todoItem.id }}">{{ todoItem.task }}</label>
+          </td>
+          <td>
+            <input class="button is-danger is-primary is-pulled-right" type="button"
+                   value="remove" (click)="removeItem(todoItem.id)">
+          </td>
+        </tr>
+      </table>
 
-      <div class="columns" *ngFor="let item of list">
-        <input type="checkbox" [(ngModel)]="item.checked" (ngModelChange)="saveList()" name="{{ item.text }}" id="{{ item.text }}">
-        <label class="checkbox pl-2" for="{{ item.text }}">
-          {{ item.text }}
-        </label>
-      </div>
-    </div>
-
-    <!-- Input -->
-    <div class="columns is-multiline">
-      <div class="column">
-        <input class="input" type="text" [(ngModel)]="inputValue" (keydown.enter)="addItem()">
-      </div>
-      <div class="column is-2">
-        <button class="button is-primary" (click)="addItem()">
-          <span class="icon">
-            <i class="fa fa-plus"></i>
-          </span>
-        </button>
-      </div>
-      <div class="column is-2">
-        <button class="button is-danger" (click)="removeCheckedItems()">
-          <span class="icon">
-            <i class="fa fa-trash"></i>
-          </span>
-        </button>
-      </div>
+      <input class="input is-primary" type="text" [(ngModel)]="todoInput"
+             (keydown.enter)="addItem()">
     </div>
   </div>
+
+
 </div>
