@@ -23,7 +23,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/daisyui/dist/full.css",
               "src/styles.css"
             ],
             "scripts": []
