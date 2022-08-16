@@ -1,29 +1,9 @@
-<div class="container">
-  <h1 class="title has-text-centered mt-5">{{ title }}</h1>
+<div class="w-screen h-screen justify-between flex flex-col">
+  <app-navbar></app-navbar>
 
-  <div class="card">
-    <div class="card-content">
-      <table class="table is-striped is-narrow is-fullwidth">
-        <tr *ngFor="let todoItem of todoList">
-          <td>
-            <input class="checkbox is-primary" type="checkbox" (change)="saveList()"
-                   [checked]="todoItem.completed" name="task-{{ todoItem.id }}"
-                   id="task-{{ todoItem.id }}">
-          </td>
-          <td>
-            <label for="task-{{ todoItem.id }}">{{ todoItem.task }}</label>
-          </td>
-          <td>
-            <input class="button is-danger is-primary is-pulled-right" type="button"
-                   value="remove" (click)="removeItem(todoItem.id)">
-          </td>
-        </tr>
-      </table>
-
-      <input class="input is-primary" type="text" [(ngModel)]="todoInput"
-             (keydown.enter)="addItem()">
-    </div>
+  <div class="container mx-auto">
+      <app-todolist class="mx-2"></app-todolist>
   </div>
 
-
+  <app-footer></app-footer>
 </div>
