@@ -1,7 +1,7 @@
 <div class="card m-auto w-96 bg-base-100 shadow-xl">
   <div class="card-body">
 
-    <!--        Input-->
+    <!-- Input -->
     <div class="form-control">
       <div class="input-group justify-center">
         <input type="text" placeholder="Type here your task..."
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <!--        List-->
+    <!-- List -->
     <div class="form-control" *ngFor="let todoItem of todoList">
       <label class="label cursor-pointer" for="task-{{ todoItem.id }}">
         <input type="checkbox" checked="checked"
@@ -25,7 +25,7 @@
                id="task-{{ todoItem.id }}" name="task-{{ todoItem.id }}"
                [(ngModel)]="todoItem.completed" (change)="saveList()"/>
 
-        <span class="label-text">{{ todoItem.task }}</span>
+        <span class="label-text  text-base break-all mx-2">{{ todoItem.task }}</span>
 
         <button class="btn btn-error btn-square btn-outline"
                 (click)="removeItem(todoItem.id)">
@@ -39,7 +39,6 @@
         </button>
       </label>
     </div>
-
 
     <div class="card-actions justify-between">
       You have {{ todoList.length }} pending task(s)
