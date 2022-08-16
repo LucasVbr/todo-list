@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Todo List App 👋</h1>
+<h1 align="center">Welcome to Todo List 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://spdx.org/licenses/MIT.html" target="_blank">
@@ -9,6 +9,8 @@
 > A Todo List app using Angular, TailWind and DaisyUi
 
 ### 🏠 [Homepage](https://todo-list-lucasvbr.vercel.app/)
+![preview picture](preview.png)
+
 
 ## Author
 
