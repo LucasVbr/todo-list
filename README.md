@@ -31,4 +31,4 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2022 [LucasVbr](https://github.com/LucasVbr).<br />
-This project is [MIT](https://spdx.org/licenses/MIT.html) licensed.
+This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
