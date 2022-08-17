@@ -28,6 +28,10 @@
 
 Give a ⭐️ if this project helped you!
 
+## 📊 Project Stats
+
+![Alt](https://repobeats.axiom.co/api/embed/6f0d3b6f2f8157548c3947150b58eb65af1bc462.svg "Repobeats analytics image")
+
 ## 📝 License
 
 Copyright © 2022 [LucasVbr](https://github.com/LucasVbr).<br />
