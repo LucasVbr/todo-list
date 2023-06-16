@@ -14,7 +14,8 @@ export default function TodoItem({todo}: Props) {
 
   return (
       <label className={clsx('TodoItem',
-          'border-[1px] border-base-300 shadow rounded-lg p-4 w-full cursor-pointer',
+          'w-full p-4 rounded-lg cursor-pointer',
+          'border-[1px] border-base-300 shadow',
           'flex items-center justify-between gap-5')}>
         <span className={"break-all"}>{todo.name}</span>
         <input type={'checkbox'} onChange={handleCheck} checked={todo.checked}

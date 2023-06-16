@@ -1,5 +1,6 @@
 import TodoItem from './TodoItem.tsx';
 import type TodoState from '../../models/TodoState.ts';
+import clsx from 'clsx';
 
 type Props = {
   todos: TodoState[]
@@ -7,7 +8,7 @@ type Props = {
 
 export default function TodoItemList({todos}: Props) {
   return (
-      <div className={'TodoItemList w-full flex flex-col gap-2'}>
+      <div className={clsx('TodoItemList', 'w-full flex flex-col gap-2')}>
         {todos.map((todo: TodoState, index) => <TodoItem todo={todo} key={index}/>)}
       </div>
   );
