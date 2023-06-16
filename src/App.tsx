@@ -5,7 +5,7 @@ import TodoCard from './components/todo/TodoCard.tsx';
 export default function App() {
 
   return (
-    <div className={"w-screen min-h-screen bg-blue-50"}>
+    <div className={"w-screen min-h-screen bg-base-300"}>
       <Navbar/>
 
       <main className={"w-full min-h-screen flex justify-center items-center"}>

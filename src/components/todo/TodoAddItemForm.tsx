@@ -18,12 +18,19 @@ export default function TodoAddItemForm() {
         <div className={'form-control'}>
           <div className={'input-group'}>
             <input type={'text'} value={name} placeholder={'Type here your task...'}
-                   className={'input input-bordered w-full'}
+                   className={'input border-primary w-full'}
                    onChange={evt => setName(evt.target.value)}
             />
-            <button type={'submit'} className={'btn btn-square'}>
-              <img className={'h-6 w-6'} src={'/icons/plus.svg'}
-                   alt="Plus icon"/>
+            <button type={'submit'} className={'btn btn-square btn-primary'}>
+
+              {/*Plus icon*/}
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6"
+                   fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                      d="M12 4v16m8-8H4"/>
+              </svg>
+
             </button>
           </div>
         </div>

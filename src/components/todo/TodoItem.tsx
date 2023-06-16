@@ -13,9 +13,12 @@ export default function TodoItem({todo}: Props) {
   const handleCheck = () => dispatch(checkTodo(todo.id));
 
   return (
-      <label className={clsx('TodoItem', 'shadow rounded-lg p-4 w-full flex items-center justify-between cursor-pointer')}>
-        {todo.name}
-        <input type={"checkbox"} onChange={handleCheck} checked={todo.checked} className={"checkbox checkbox-primary"}/>
+      <label className={clsx('TodoItem',
+          'border-[1px] border-base-300 shadow rounded-lg p-4 w-full cursor-pointer',
+          'flex items-center justify-between gap-5')}>
+        <span className={"break-all"}>{todo.name}</span>
+        <input type={'checkbox'} onChange={handleCheck} checked={todo.checked}
+               className={'checkbox checkbox-primary'}/>
       </label>
   );
 }
