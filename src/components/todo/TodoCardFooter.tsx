@@ -6,7 +6,11 @@ import TodoState from '../../models/TodoState.ts';
 export default function TodoCardFooter() {
 
   const dispatch = useDispatch();
-  const selectedTodosCount: number = useSelector((state: RootState) => state.todo.filter((todo: TodoState) => !todo.checked).length);
+  const selectedTodosCount: number = useSelector(
+      (state: RootState) => state.todo.filter(
+          (todo: TodoState) => !todo.checked
+      ).length
+  );
 
   const handleDelete = () => dispatch(deleteSelectedTodos());
 
