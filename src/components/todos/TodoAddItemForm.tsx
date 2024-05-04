@@ -17,12 +17,12 @@ export default function TodoAddItemForm() {
   return (
       <form onSubmit={handleSubmit} className={'TodoAddItemForm'}>
         <div className={'form-control'}>
-          <div className={'input-group'}>
+          <div className={'join'}>
             <input type={'text'} value={name}
                    placeholder={'Type here your task...'}
-                   className={'input border-primary w-full'}
+                   className={'input border-primary w-full join-item'}
                    onChange={evt => setName(evt.target.value)}/>
-            <button type={'submit'} className={'btn btn-square btn-primary'}>
+            <button type={'submit'} className={'btn btn-square btn-primary join-item'}>
               <PlusIcon className={"h-6 w-6"}/>
             </button>
           </div>

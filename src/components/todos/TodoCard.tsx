@@ -10,7 +10,7 @@ export default function TodoCard() {
 
   return (
       <div className={clsx('TodoCard',
-          'card max-w-6xl p-5 shadow-xl gap-7 bg-base-100')}>
+          'card max-w-6xl p-5 shadow-xl gap-7 bg-base-100 my-28')}>
         <TodoAddItemForm/>
         {todos.length > 0 && (
             <>

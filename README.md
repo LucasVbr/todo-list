@@ -11,7 +11,7 @@
 ### 🏠 [Homepage](https://todo-list-lucasvbr.vercel.app/)
 
 <kbd>
-    <img src="preview.png" alt="preview picture"/>
+    <img src=".readme/preview.png" alt="preview picture"/>
 </kbd>
 
 ## Author
