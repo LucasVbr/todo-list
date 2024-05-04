@@ -32,7 +32,7 @@ export const todoSlice = createSlice({
     },
     deleteSelectedTodos: (state) => {
       const newState = state.filter((todo: TodoState) => !todo.checked);
-      localStorage.setItem('todos', JSON.stringify(state));
+      localStorage.setItem('todos', JSON.stringify(newState));
       return newState;
     },
   },
