@@ -2,7 +2,8 @@ import TodoState from '../../models/TodoState.ts';
 import {createSlice} from '@reduxjs/toolkit';
 import todoState from '../../models/TodoState.ts';
 
-const initialState: TodoState[] = [];
+const savedTodos: string | null = localStorage.getItem('todos');
+const initialState: TodoState[] = savedTodos ? JSON.parse(savedTodos) : [];
 
 export const todoSlice = createSlice({
   name: 'todo',
@@ -16,6 +17,7 @@ export const todoSlice = createSlice({
       };
 
       state.push(newTodo);
+      localStorage.setItem('todos', JSON.stringify(state));
     },
     checkTodo: (state, action) => {
       const id: number = action.payload;
@@ -26,9 +28,12 @@ export const todoSlice = createSlice({
       if (todo === undefined) return;
 
       todo.checked = !todo.checked;
+      localStorage.setItem('todos', JSON.stringify(state));
     },
     deleteSelectedTodos: (state) => {
-      return state.filter((todo: TodoState) => !todo.checked);
+      const newState = state.filter((todo: TodoState) => !todo.checked);
+      localStorage.setItem('todos', JSON.stringify(state));
+      return newState;
     },
   },
 });
